@@ -11,10 +11,10 @@ class TodoListNotifier extends Notifier<List<Todo>> {
     return [];
   }
 
-  void addTodo(String description) {
+  void addTodo(String desc) {
     state = [
       ...state,
-      Todo(id: _uuid.v4(), description: description),
+      Todo(id: _uuid.v4(), desc: desc),
     ];
   }
 
@@ -22,7 +22,7 @@ class TodoListNotifier extends Notifier<List<Todo>> {
     state = [
       for (final todo in state)
         if (todo.id == id)
-          todo.copyWith(completed: !todo.completed)
+          todo.clone(comp: !todo.comp)
         else
           todo
     ];

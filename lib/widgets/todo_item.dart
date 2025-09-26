@@ -14,19 +14,19 @@ class TodoItem extends ConsumerWidget {
     return ListTile(
       // Checkbox to toggle completion
       leading: Checkbox(
-        value: todo.completed,
+        value: todo.comp,
         onChanged: (bool? value) {
           ref.read(todoListProvider.notifier).toggle(todo.id);
         },
       ),
       // Todo Description
       title: Text(
-        todo.description,
+        todo.desc,
         style: TextStyle(
-          decoration: todo.completed
+          decoration: todo.comp
               ? TextDecoration.lineThrough
               : TextDecoration.none,
-          color: todo.completed ? Colors.grey : null,
+          color: todo.comp ? Colors.grey : null,
         ),
       ),
       // Delete Button
